@@ -1,5 +1,13 @@
-Resources:
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AWS CloudFormation template to create a VPC.
 
+Parameters:
+  VPCCidr:
+    Type: String
+    Default: 10.0.0.0/16
+    Description: CIDR block for the VPC.
+
+Resources:
   VPC:
     Type: AWS::EC2::VPC
     Properties:
@@ -9,3 +17,8 @@ Resources:
       Tags:
         - Key: Name
           Value: VPC-leotho2432
+
+Outputs:
+  VPCId:
+    Description: The ID of the VPC.
+    Value: !Ref VPC
